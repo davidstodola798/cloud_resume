@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,62 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Stodola - Resume</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; max-width: 800px; }
-        h1, h2 { color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #b22222; 
+            font-size: 1.8em;
+        }
+
+        a {
+            color: #0078D7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #b22222;
+            text-decoration: underline;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: 1px solid #0078D7; /* Blue separator line */
+        }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const counterElement = document.getElementById("visitor-counter");
+    
+            try {
+                const response = await fetch("YOUR_AZURE_FUNCTION_URL");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch visitor count");
+                }
+                const data = await response.json();
+                counterElement.textContent = `Visitors: ${data.count}`;
+            } catch (error) {
+                console.error("Error fetching visitor count:", error);
+                counterElement.textContent = "Error loading count";
+            }
+        });
+    </script> 
 </head>
 <body>
     <h1>David Stodola</h1>
-<h2>Contact Information</h2>
-<ul>
-<li><strong>Email</strong> dvclark02@gmail.com</li>
-<li><strong>Phone</strong> (828) - 862 - 5975</li>
-<li><strong>LinkedIn</strong> <a href="https://linkedin.com/in/david-stodola-8105b7263">Profile</a></li>
-<li><strong>Github</strong> <a href="https://github.com/davidstodola798">Profile</a></li>
-</ul>
-<h2>Profile</h2>
-<ul>
-<li>Data analysis and machine learning skills developed through two semesters of analyzing corporate sensitive data</li>
-<li>Problem solving skills developed through study of calculus, algebra, statistics, and physics courses</li>
-<li>Communication skills developed through guest lecturing in schools</li>
-<li>Numerical reasoning skills developed through research, projects, and coursework in Python and R Studio</li>
-</ul>
-<h2>Education</h2>
-<ul>
-<li>B.S., Mathematics | Bob Jones University | December 2024</li>
-<li>GPA: 3.83</li>
-<li>Extra curriculars: intermural sports captain, piano, nursing home ministry, fraternity  leadership</li>
-</ul>
-<h2>Related Experience</h2>
-<ul>
-<li>In-depth data analysis with corporate sensitive data through independent research 
-    Fall 2024
-    Focused on non-traditional students and their performance using R2 semesters under mentorship of research advisor</li>
-<li>Independent data analysis consultant<br />
-    Fall 2024</li>
-<li>Teaching math while traveling throughout the Northeast
-    Spring 2024
-    Team leader of BJU math team
-    Lead math workshops in high schools </li>
-<li>Researched and implemented machine learning data analysis algorithms <br />
-    Fall 2023
-    Regression trees and K-clustering</li>
-</ul>
-<h2>Work Experience</h2>
-<ul>
-<li>Freelance Data Analysis                            <br />
-    Spring 2024 – Present
-    Performed data analysis for small companies
-    Cleaned and organized data entries</li>
-<li>Math University Team Leader | Bob Jones University, Greenville                                        <br />
-    Spring 2024
-    Team leader of Bob Jones University’s math team
-    Taught math workshops from 7th grade to 12th grade
-    Gained interpersonal skills while managing team members</li>
-<li>Teaching Summer School | Harvest Christian Academy Guam                                   <br />
-    May 2024 - July 2024
-    Gained leadership experience by teaching and mentoring 5th and 6th graders for 2 summers
-    Developed communication skills through instructing lessons, resolving conflicts, and providing clear guidance to students, parents, and staff</li>
-</ul>
+    <p id="visitor-counter">Loading...</p>
+    <h2>Contact Information</h2>
+    <ul>
+        <li><strong>Email</strong> dvclark02@gmail.com</li>
+        <li><strong>Phone</strong> (828) 862 - 5975</li>
+        <li><strong>LinkedIn</strong> <a href="https://linkedin.com/in/david-stodola-8105b7263">Profile</a></li>
+        <li><strong>Github</strong> <a href="https://github.com/davidstodola798">Profile</a></li>
+    </ul>
+    <h2>Profile</h2>
+    <ul>
+        <li>Data analysis and machine learning skills developed through two semesters of analyzing corporate sensitive data in R (dplyr, rpart, tidyr, MASS and others) for data preprocessing, modeling, and visualization</li>
+        <li>Programming skills developed through research, projects, and coursework in Python, applying libraries such as Flask, PIL, and openpyxl</li>
+        <li>Problem solving skills developed through study in advanced calculus, algebra, statistics, and physics courses</li>
+        <li>Communication skills developed through guest lecturing in schools</li>
+    </ul>
+    <h2>Education</h2>
+    <ul>
+        <li>B.S., Mathematics | Bob Jones University | December 2024</li>
+        <li>GPA: 3.83</li>
+        <li>Extra curriculars: intermural sports captain, piano, nursing home ministry, fraternity  leadership</li>
+    </ul>
+    <h2>Related Experience</h2>
+    <ul>
+        <li>In-depth data analysis with corporate sensitive data through independent research
+            <ul>
+                <li>Fall 2024</li>
+                <li>Focused on non-traditional students and their performance using R2 semesters under mentorship of research advisor</li>
+            </ul>
+        </li>
+        <li>Independent data analysis consultant  
+            <ul>
+                <li>Fall 2024</li>
+            </ul>
+        </li>
+        <li>Researched and implemented machine learning data analysis algorithms   
+            <ul>
+                <li>Fall 2023</li>
+                <li>Regression trees and K-clustering</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Work Experience</h2>
+    <ul>
+        <li>Freelance Data Analysis                              
+            <ul>
+                <li>Spring 2024 – Present</li>
+                <li>Performed data analysis for small companies</li>
+                <li>Cleaned and organized data entries</li>
+            </ul>
+        </li>
+        <li>Math University Team Leader | Bob Jones University, Greenville                                          
+            <ul>
+                <li>Spring 2024</li>
+                <li>Team leader of Bob Jones University’s math team</li>
+                <li>Taught math workshops from 7th grade to 12th grade</li>
+                <li>Gained interpersonal skills while managing team members</li>
+            </ul>
+        </li>
+        <li>Teaching Summer School | Harvest Christian Academy Guam                                     
+            <ul>
+                <li>May 2024 - July 2024</li>
+                <li>Gained leadership experience by teaching and mentoring 5th and 6th graders for 2 summers</li>
+                <li>Developed communication skills through instructing lessons, resolving conflicts, and providing clear guidance to students, parents, and staff</li>
+            </ul>
+        </li>
+    </ul>
 </body>
 </html>
